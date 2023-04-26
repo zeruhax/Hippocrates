@@ -69,11 +69,6 @@ class Menu:
         server = input("Choose Server (one-eleven): ")
         return ip , server
     
-    def show(self, ip, server):
-        server_list = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven"]
-        if server not in server_list:print("Open Your Eyes!")
-        return self.start_reverse(ip, server)
-    
 try:
     print("""Available Server : one,two,three,four,five,six,seven,eight,nine,ten,eleven \nCredit @Real_Zeru_nishimura""")
     menu = Menu()
