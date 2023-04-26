@@ -77,7 +77,8 @@ class Menu:
 try:
     menu = Menu()
     ip , server = menu.input_list()
-    rev = Reverse(ip, server).execute(10)
+    thread = input("Thread: ")
+    rev = Reverse(ip, server).execute(thread)
 except KeyboardInterrupt:
     print("Bye")
     exit()
