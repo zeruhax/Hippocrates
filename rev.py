@@ -75,10 +75,11 @@ class Menu:
         return self.start_reverse(ip, server)
     
 try:
+    print("""Available Server : one,two,three,four,five,six,seven,eight,nine,ten,eleven \nCredit @Real_Zeru_nishimura""")
     menu = Menu()
     ip , server = menu.input_list()
     thread = input("Thread: ")
-    rev = Reverse(ip, server).execute(thread)
+    rev = Reverse(ip, server).execute(int(thread))
 except KeyboardInterrupt:
     print("Bye")
     exit()
