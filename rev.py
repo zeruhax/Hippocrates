@@ -38,6 +38,10 @@ class Reverse:
         self.ip = iplist
         self.server = server
 
+    def test_network(self):
+        try:requests.get(self.endpoint, timeout=10)
+        except:raise Exception("Server Down")
+        
     def reverse(self, ips):
         if ips not in self.tmp_ip:
             self.tmp_ip.append(ips)
@@ -46,7 +50,7 @@ class Reverse:
             req = requests.post(self.endpoint + "reverse", json=data, headers=headers)
             js = json.loads(req.text)
             total = js["data"]["domain"]
-            for x in js["data"]["domain"]:self.result.append(x);open(f"server-{self.server}.txt", "a+").write(x)
+            for x in js["data"]["domain"]:self.result.append(x);open(f"server-{self.server}.txt", "a+").write(x + "\n")
             print(f"Ip {ips} , have {len(total)} Domain")
         else:print("IP :" + ips + " SAME IP") 
         
