@@ -37,11 +37,7 @@ class Reverse:
         self.result = []
         self.ip = iplist
         self.server = server
-        
-    def test_network(self):
-        try:requests.get(self.endpoint, timeout=10)
-        except:raise Exception("Server Down")
-        
+
     def reverse(self, ips):
         if ips not in self.tmp_ip:
             self.tmp_ip.append(ips)
@@ -68,7 +64,7 @@ class Menu:
         ip = open(input("list : "), encoding="utf8" ).read().splitlines()
         server = input("Choose Server (one-eleven): ")
         return ip , server
-    
+
 try:
     print("""Available Server : one,two,three,four,five,six,seven,eight,nine,ten,eleven \nCredit @Real_Zeru_nishimura""")
     menu = Menu()
