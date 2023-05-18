@@ -66,14 +66,27 @@ class Reverse:
         
 class Menu():
 
+    def __init__(self):
+        self.banner()
+                
+    def banner(self):
+        print("""
+                  __  ___                                   __           
+   / / / (_)___  ____  ____  ______________ _/ /____  _____
+  / /_/ / / __ \/ __ \/ __ \/ ___/ ___/ __ `/ __/ _ \/ ___/
+ / __  / / /_/ / /_/ / /_/ / /__/ /  / /_/ / /_/  __(__  ) 
+/_/ /_/_/ .___/ .___/\____/\___/_/   \__,_/\__/\___/____/  
+       /_/   /_/                                           
+              """)
+    
     def input_list(self):
         ip = open(input("list : "), encoding="utf8" ).read().splitlines()
         server = input("Choose Server (one-eleven): ")
         return ip , server
 
 try:
-    print("""Available Server : one,two,three,four,five,six,seven,eight,nine,ten,eleven \nCredit @Real_Zeru_nishimura""")
     menu = Menu()
+    print("""Available Server : one,two,three,four,five,six,seven,eight,nine,ten,eleven \nCredit @Real_Zeru_nishimura""")
     ip , server = menu.input_list()
     thread = input("Thread: ")
     rev = Reverse(ip, server).execute(int(thread))
