@@ -1,8 +1,11 @@
 import requests,json
 from threading import Thread
 from queue import Queue
+import configparser
 
-        
+config = configparser.ConfigParser()
+config.read('config.ini')
+api_key = config.get("configuration","api_key")
 class Worker(Thread):
   def __init__(self, tasks):
       Thread.__init__(self)
@@ -31,27 +34,26 @@ class ThreadPool:
 class Reverse:
         
     def __init__(self, iplist, server):
-        self.endpoint = "http://167.99.72.29:8080/api/"
-        self.api_key = "" # <- Paste ur apikey
+        self.endpoint = "http://api.zeru.ninja:8080/api/"
+        self.api_key = api_key
         self.tmp_ip = []
         self.result = []
         self.ip = iplist
         self.server = server
 
-    def test_network(self):
-        try:requests.get(self.endpoint, timeout=10)
-        except:raise Exception("Server Down")
-        
     def reverse(self, ips):
         if ips not in self.tmp_ip:
             self.tmp_ip.append(ips)
-            headers = {"X-API-KEY":self.api_key,'Content-Type': 'application/x-www-form-urlencoded'}
+            headers = {"X-API-KEY":self.api_key, 'Content-Type': 'application/x-www-form-urlencoded'}
             data = {"ip" : ips, "server" : self.server}
             req = requests.post(self.endpoint + "reverse", json=data, headers=headers)
             js = json.loads(req.text)
-            total = js["data"]["domain"]
-            for x in js["data"]["domain"]:self.result.append(x);open(f"server-{self.server}.txt", "a+").write(x + "\n")
-            print(f"Ip {ips} , have {len(total)} Domain")
+            if js["data"]["domain"] == None:
+                print(f"Ip {ips} , have 0 domain")
+            else:
+                total = js["data"]["domain"]
+                for x in js["data"]["domain"]:self.result.append(x);open(f"server-{self.server}.txt", "a+").write(x + "\n")
+                print(f"Ip {ips} , have {len(total)} Domain")
         else:print("IP :" + ips + " SAME IP") 
         
     def execute(self, thread):
@@ -62,8 +64,8 @@ class Reverse:
         pool.wait_completion()
         print(f"Task Done , total : {len(self.result)} domain")
         
-class Menu:
-    
+class Menu():
+
     def input_list(self):
         ip = open(input("list : "), encoding="utf8" ).read().splitlines()
         server = input("Choose Server (one-eleven): ")
