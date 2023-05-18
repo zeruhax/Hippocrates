@@ -20,7 +20,7 @@ Download Zeru Client From Link Below
 
 ## Configuration
 - Copy Ur Apikey From Zeru Client
-- Paste In config.ini
+- Paste In Line 2 config.ini
 
 ## Run-Script
 
