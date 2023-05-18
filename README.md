@@ -1,9 +1,33 @@
-# revip-public
-Public Repository Reverse Ip
+# Hippocrates
+Public Repository For Free Reverse Ip
 
-## Redme For Usage
-Fill Line 35 With Ur Apikey , for getting apikey u can get free on zeru client [download](https://t.me/zeru_tools/117)
+## Table Of Content
+- [Hippocrates](#content)
+  * [How To Get Apikey](#How-To-Get-Apikey)
+  * [How To Configure](#Configuration)
+  * [How To Run Script](#Run-Script)
 
-Ip = choose ip list from ur file \
-Server = choose server , diferent server diferent result \
-Thread = choose thread as u want , best usage 100/200 thread
+## How-To-Get-Apikey
+Download Zeru Client From Link Below 
+- GUI Version : https://t.me/zeru_tools/129
+- CLI Version : https://t.me/zeru_tools/117
+
+### Step By Step :
+- Register First
+- Login Using Ur Credential
+- Add Ur Ip To Whitelist Ip
+- Copy Apikey
+
+## Configuration
+- Copy Ur Apikey From Zeru Client
+- Paste In config.ini
+
+## Run-Script
+
+```
+pip install -r requirements.txt
+```
+
+```
+python rev.py
+```
