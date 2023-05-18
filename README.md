@@ -15,7 +15,7 @@ Download Zeru Client From Link Below
 ### Step By Step :
 - Register First
 - Login Using Ur Credential
-- Add Ur Ip To Whitelist Ip
+- Add Ur Hostname Ip To Whitelist Ip
 - Copy Apikey
 
 ## Configuration
