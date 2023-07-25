@@ -34,7 +34,7 @@ class ThreadPool:
 class Reverse:
         
     def __init__(self, iplist, server):
-        self.endpoint = "http://api.zeru.ninja:8080/api/"
+        self.endpoint = "http://api.zeru.ninja/api/"
         self.api_key = api_key
         self.tmp_ip = []
         self.result = []
